@@ -16,7 +16,7 @@ tokenizers==0.12.1
 
 # Utility libraries
 requests==2.27.1
-tqdm==4.63.0
+tqdm==4.66.3
 
 # JSON handling
 simplejson==3.17.6
