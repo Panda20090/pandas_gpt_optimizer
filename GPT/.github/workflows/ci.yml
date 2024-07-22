@@ -1,0 +1,77 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Set environment variable
+      run: echo "PROJECT_ROOT=$(pwd)" >> $GITHUB_ENV
+
+    - name: Ensure venv is removed (Ubuntu)
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        if [ -d "GPT/venv" ]; then
+          rm -rf GPT/venv
+        fi
+      shell: bash
+
+    - name: Ensure venv is removed (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        if exist "GPT\venv" rd /s /q "GPT\venv"
+      shell: cmd
+
+    - name: Setup environment and install dependencies
+      run: |
+        powershell ./GPT/setup/setup_env.ps1
+      shell: powershell
+
+    - name: Run tests (Ubuntu)
+      if: matrix.os == 'ubuntu-latest'
+      env:
+        TEST_MODE: 'true'
+      run: |
+        source GPT/venv/bin/activate
+        python -m unittest discover tests
+      shell: bash
+
+    - name: Run tests (Windows)
+      if: matrix.os == 'windows-latest'
+      env:
+        TEST_MODE: 'true'
+      run: |
+        call GPT\venv\Scripts\activate.bat
+        python -m unittest discover tests
+      shell: cmd
+
+    - name: Cleanup (Ubuntu)
+      if: always() && matrix.os == 'ubuntu-latest'
+      run: |
+        rm -rf GPT/venv
+      shell: bash
+
+    - name: Cleanup (Windows)
+      if: always() && matrix.os == 'windows-latest'
+      run: |
+        if exist "GPT\venv" rd /s /q "GPT\venv"
+      shell: cmd
+
+    - name: Run unit tests
+      run: |
+        source GPT/venv/bin/activate
+        python -m unittest discover tests
+      shell: bash
