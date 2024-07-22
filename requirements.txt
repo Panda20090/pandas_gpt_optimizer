@@ -1,0 +1,56 @@
+# Flask and related libraries
+Flask==2.1.2
+flask-cors==3.0.10
+
+# OpenAI API client
+openai==0.10.2
+
+# Transformers for working with models
+transformers==4.17.0
+
+# PyTorch for model training and inference
+torch==1.11.0
+
+# Tokenizers library
+tokenizers==0.12.1
+
+# Utility libraries
+requests==2.27.1
+tqdm==4.63.0
+
+# JSON handling
+simplejson==3.17.6
+
+# For logging and debugging
+loguru==0.5.3
+
+# Dependency analysis
+pipreqs==0.4.11
+
+# For testing and test coverage
+pytest==7.1.2
+coverage==6.4.1
+
+# For handling environment variables
+python-dotenv==0.20.0
+
+# For running shell commands in the scripts
+subprocess32==3.5.4
+
+# For using Tkinter (included in standard library but listed for completeness)
+tk==0.1.0
+
+# Pandas for data manipulation and analysis
+pandas==1.4.2
+
+# Scikit-learn for machine learning algorithms
+scikit-learn==1.0.2
+
+# Jupyter for interactive development
+jupyter==1.0.0
+
+# Matplotlib for plotting
+matplotlib==3.5.1
+
+# Seaborn for statistical data visualization
+seaborn==0.11.2
