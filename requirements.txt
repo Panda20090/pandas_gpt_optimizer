@@ -1,5 +1,5 @@
 # Flask and related libraries
-Flask==2.1.2
+Flask==2.2.5
 flask-cors==4.0.1
 
 # OpenAI API client
