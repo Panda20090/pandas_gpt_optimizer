@@ -6,7 +6,7 @@ flask-cors==5.0.0
 openai==0.10.2
 
 # Transformers for working with models
-transformers==4.48.0
+transformers==4.52.1
 
 # PyTorch for model training and inference
 torch==2.2.0
