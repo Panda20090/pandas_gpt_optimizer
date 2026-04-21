@@ -32,7 +32,7 @@ pytest==7.1.2
 coverage==6.4.1
 
 # For handling environment variables
-python-dotenv==0.20.0
+python-dotenv==1.2.2
 
 # For running shell commands in the scripts
 subprocess32==3.5.4
