@@ -28,7 +28,7 @@ loguru==0.5.3
 pipreqs==0.4.12
 
 # For testing and test coverage
-pytest==7.1.2
+pytest==9.0.3
 coverage==6.4.1
 
 # For handling environment variables
